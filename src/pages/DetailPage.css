@@ -1,0 +1,244 @@
+.detail-page .post-box {
+  margin-bottom: 20px;
+}
+
+.detail-page .post-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.detail-page .post-date {
+  flex: 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #181818;
+  padding: 6px 0;
+  line-height: 1.2;
+}
+
+.detail-page .post-date-day {
+  font-size: 18px;
+  font-weight: 700;
+  color: #eee;
+}
+
+.detail-page .post-date-month {
+  font-size: 11px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.detail-page .siteheading {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #eee;
+}
+
+.detail-page .post-meta {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.detail-page .player-frame {
+  width: 100%;
+  max-width: 599px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+.detail-page .player-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #777;
+}
+
+.detail-page .play-icon {
+  font-size: 48px;
+  color: #555;
+}
+
+.detail-page .player-note {
+  font-size: 13px;
+}
+
+.detail-page .video-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  max-width: 599px;
+  margin: 8px auto 0;
+}
+
+.detail-page .views-text {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.detail-page .video-action__like {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 29px;
+  padding: 0 10px;
+  background-color: #2b2b2b;
+  color: #fff;
+  border: 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.detail-page .video-action__like.liked {
+  background-color: #e94560;
+}
+
+.detail-page .post-desc {
+  margin: 14px 0;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.detail-page .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.detail-page .section-box {
+  background-color: #181818;
+  padding: 10px;
+  margin: 0 0 30px;
+}
+
+.detail-page .section-title {
+  margin: 0 0 10px;
+  padding: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #eee;
+  border-bottom: 1px solid #333;
+}
+
+.detail-page .related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.detail-page .muted {
+  color: #aaa;
+  margin: 0;
+}
+
+.detail-page .respond,
+.detail-page .comments {
+  margin: 20px 0;
+}
+
+.detail-page .comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-page .comment-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: #181818;
+  color: #eee;
+  border: 1px solid #333;
+  font: inherit;
+}
+
+.detail-page .comment-submit {
+  align-self: flex-start;
+  padding: 8px 16px;
+  background-color: #e94560;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.detail-page .comment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.detail-page .comment-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.detail-page .comment-item p {
+  margin: 4px 0 0;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .detail-page .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-page .siteheading {
+    font-size: 17px;
+  }
+}
+/* --- Player embed (video thật từ viet69.be) --- */
+.detail-page .player-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-page .embed-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+
+/* video thành viên: iframe trang gốc -> cao hơn, cuộn tới player */
+.detail-page .embed-player--page {
+  height: 1200px;
+  transform: translateY(-160px);
+}
+
+/* --- Nút chuyển Server --- */
+.detail-page .server-switch {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  z-index: 5;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+}
+.detail-page .server-btn {
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #eee;
+  background: #333;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.detail-page .server-btn:hover { background: #555; }
+.detail-page .server-btn.active {
+  color: #000;
+  background: #37b34a;
+}

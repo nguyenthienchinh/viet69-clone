@@ -1,0 +1,43 @@
+[build]
+  # Directory containing the build script
+  publish = "dist"
+
+  # Build command
+  command = "npm run build"
+
+  # Directory where build instructions are located
+  base = "/"
+
+# Production configuration
+[production]
+  # Production build settings
+  environment = {
+    NODE_ENV = "production",
+    VITE_API_URL = "https://api.viet69.be/api"
+  }
+
+# Development configuration
+[dev]
+  # Development build settings
+  autoLaunch = true
+  framework = "vite"
+
+  # Development server settings
+  [dev.commands]
+    start = "npm run dev"
+    build = "npm run build"
+
+# Redirects for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for performance and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Mode = "1; mode=report"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

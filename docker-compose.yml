@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # Frontend - React with Vite
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: viet69-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://localhost:3000/api
+    volumes:
+      - ./dist:/app/dist
+      - ./public:/app/public
+    restart: unless-stopped
+    networks:
+      - viet69-network
+
+  # Backend - Express API
+  backend:
+    build:
+      context: ./src/api
+      dockerfile: Dockerfile
+    container_name: viet69-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - API_PORT=3000
+      - CORS_ORIGIN=http://localhost:5173
+    volumes:
+      - ./src/api:/app/src
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - viet69-network
+    depends_on:
+      - frontend
+
+  # Database (PostgreSQL for production)
+  database:
+    image: postgres:15-alpine
+    container_name: viet69-database
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=viet69
+      - POSTGRES_PASSWORD=viet69secret
+      - POSTGRES_DB=viet69clone
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - viet69-network
+
+networks:
+  viet69-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
